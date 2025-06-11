@@ -47,9 +47,16 @@ namespace MvcTodoApp.Controllers
         [HttpPost]
         public IActionResult EditTask(int id, string newTitle)
         {
-            // TODO: ابحث عن المهمة باستخدام id
-            // TODO: تأكد من أن المهمة موجودة وأن newTitle غير فارغ
-            // TODO: عدل عنوان المهمة
+            // ابحث عن المهمة باستخدام id
+            var task = tasks.FirstOrDefault(t => t.Id == id);
+
+            // تأكد من أن المهمة موجودة وأن newTitle غير فارغ
+            if (task != null && !string.IsNullOrWhiteSpace(newTitle))
+            {
+                // عدل عنوان المهمة
+                task.Title = newTitle;
+            }
+
             return RedirectToAction("Index");
         }
     }

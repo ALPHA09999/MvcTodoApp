@@ -25,6 +25,11 @@
                     </form> 
  
                     <!-- TODO:  ةمهملا ليدعت رز ةفاضإ--> 
+                        <form method="post" asp-action="EditTask" style="display:inline;">
+                        <input type="hidden" name="id" value="@task.Id" />
+                        <input type="text" name="newTitle" placeholder="عنوان جديد" />
+                        <button type="submit">تعديل</button>
+                    </form>
                 } 
             </li> 
         } 
